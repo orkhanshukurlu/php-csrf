@@ -1,51 +1,35 @@
+![latest release](https://img.shields.io/badge/PHP->=7.3-blue.svg?style=flat-square)
+![latest release](https://img.shields.io/badge/Version-1.0.0-red.svg?style=flat-square)
+![latest release](https://img.shields.io/badge/License-MIT-success.svg?style=flat-square)
+
 # PHP CSRF
 
-## Kurulum
-```shell
-    composer require orkhanshukurlu/php-csrf
+PHP CSRF, PHP üçün yazılmış CSRF token paketidir. Siz bu paket vasitəsilə yazdığınız layihəni həm CSRF hücumlarından qoruyacaqsınız həm də layihənizi daha təhlükəsiz etmiş olacaqsınız
+
+## Tələblər
+
+* PHP 7.3+
+
+## Yükləmə
+
+```
+composer require orkhanshukurlu/php-csrf
 ```
 
-### Basit Kullanım
-`vendor/autoload.php` dosyasını dahil ettikten sonra `Csrf` sınıfını üretin. Sınıfı `new` anahtar kelimesiyle çağırdığınızda token üretecektir. Tokeni kullanmak için:
+## İstifadə
+`vendor/autoload.php` faylını səhifəyə daxil etdikdən sonra CSRF istifadə etmək mümkündür
 ```php
-    use ahmetbarut\Csrf\Csrf;
-
-    require __DIR__ . "/vendor/autoload.php";
-
-    // Sınıfı ürettiğinizde token oluşturur. Herhangi bir istek yoksa üretilir, istek varsa token üretmez. 
-    $csrf = new Csrf;
-
-    // Üretilen token değerini getirir.
-    $csrf->getToken();
+require __DIR__.'/vendor/autoload.php';
 ```
-### HTML İçinde Kullanım Ve Kontrol
-Burda kolay kullanım açısından form içinde helper fonksiyonları kullanılıyor. İki yöntemi de kullanabilirsiniz.
 
-## ! Not :
-`hasToken` yöntemine gelen verileri olduğu gibi veriniz arkaplanda, `input[name=_token]` olarak bakacaktır.
+### `Csrf::field() - csrf_field()`
+CSRF token üçün gizli input generasiya edir. `Html`-də `<form>` elementinin daxilinə uyğun metod və ya funkisyanı əlavə etmək lazımdır
 ```php
-<?php
-    use ahmetbarut\Csrf\Csrf;
+require __DIR__.'/vendor/autoload.php';
 
-    require __DIR__ . "/vendor/autoload.php";
+// Csrf sinifi vasitəsi ilə istifadə
+use OrkhanShukurlu\Csrf\Csrf;
 
-    $csrf = new Csrf;
-    if($_POST){
-        $csrf->tokenHas($_POST); // bool
-    }
-?>
-
-<form method="POST">
-    <?=csrf_field()?>
-    <input type="text" name="test">
-    <button>Gönder</button>
-</form>
+echo Csrf::field(); // 
+// Funksiya vasitəsi ilə istifadə
 ```
-
-| Method      | Hakkında |
-| :---        |    :----:
-| __construct | Nesne üretildiğinde beraberinde `session`'u başlatır ve token oluşturur.    |
-| tokenHas   | Verilen tokeni, oluşturulan token ile karşılaştırır.    |
-| getToken   | Oluşturulan son tokeni döndürür.
-| csrf_field   | İnput oluşturur ve token verir. Helper fonksiyonudur. 
-| create_token   | Yeni token oluşturur.

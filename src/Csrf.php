@@ -2,28 +2,51 @@
 
 namespace OrkhanShukurlu\Csrf;
 
+use Exception;
+
 class Csrf
 {
-    public static function check(array $request): bool
-    {
-        return isset($request['_token'], $_SESSION['_token']) && hash_equals($request['_token'], $_SESSION['_token']);
-    }
+    const TOKEN_NAME = '_token';
+    const TOKEN_SIZE = 20;
 
+    /**
+     * CSRF token üçün input generasiya edir
+     *
+     * @return string
+     * @throws Exception
+     */
     public static function field(): string
     {
-        return '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+        return '<input type="hidden" name="' . self::TOKEN_NAME . '" value="' . self::token() . '">';
     }
 
+    /**
+     * CSRF token dəyəri generasiya edir
+     *
+     * @return string
+     * @throws Exception
+     */
     public static function token(): string
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        if (!isset($_SESSION['_token'])) {
-            $_SESSION['_token'] = bin2hex(random_bytes(40));
+        if (! isset($_SESSION[self::TOKEN_NAME])) {
+            $_SESSION[self::TOKEN_NAME] = bin2hex(random_bytes(self::TOKEN_SIZE));
         }
 
-        return $_SESSION['_token'];
+        return $_SESSION[self::TOKEN_NAME];
+    }
+
+    /**
+     * CSRF tokenin doğruluğunu yoxlayır
+     *
+     * @param  array $request
+     * @return bool
+     */
+    public static function validate(array $request): bool
+    {
+        return isset($request[self::TOKEN_NAME], $_SESSION[self::TOKEN_NAME]) && hash_equals($request[self::TOKEN_NAME], $_SESSION[self::TOKEN_NAME]);
     }
 }

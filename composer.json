@@ -1,28 +1,26 @@
 {
     "name": "orkhanshukurlu/php-csrf",
-    "description": "A package written for user activity logging in Laravel",
+    "description": "PHP üçün yazılmış CSRF token paketi",
     "keywords": [
         "orkhanshukurlu",
-        "laravel",
-        "activity-log",
-        "user-activity-log"
+        "php-csrf",
+        "csrf",
+        "php"
     ],
-    "homepage": "https://github.com/orkhanshukurlu/php-csrf",
-    "license": "MIT",
     "authors": [
         {
             "name": "Orkhan Shukurlu",
-            "email": "orkhandev@gmail.com",
-            "role": "Developer"
+            "email": "orkhandev@gmail.com"
         }
     ],
+    "homepage": "https://github.com/orkhanshukurlu/php-csrf",
+    "license": "MIT",
     "require": {
-        "php" : "^7.3|^8.0|^8.1",
-        "illuminate/database": "^7.0|^8.0|^9.0"
+        "php" : ">=7.3"
     },
     "autoload": {
         "psr-4": {
-            "OrkhanShukurlu\\ActivityLog\\": "src"
+            "OrkhanShukurlu\\Csrf\\": "src/"
         },
         "files": [
             "src/helpers.php"
