@@ -1,0 +1,36 @@
+{
+    "name": "orkhanshukurlu/php-csrf",
+    "description": "A package written for user activity logging in Laravel",
+    "keywords": [
+        "orkhanshukurlu",
+        "laravel",
+        "activity-log",
+        "user-activity-log"
+    ],
+    "homepage": "https://github.com/orkhanshukurlu/php-csrf",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Orkhan Shukurlu",
+            "email": "orkhandev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^7.3|^8.0|^8.1",
+        "illuminate/database": "^7.0|^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OrkhanShukurlu\\ActivityLog\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
