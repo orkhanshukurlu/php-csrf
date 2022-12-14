@@ -1,0 +1,31 @@
+{
+    "name": "orkhanshukurlu/php-csrf",
+    "description": "Veb saytınızdan botları və arzuolunmaz insanları uzaq tutun",
+    "keywords": [
+        "php-csrf",
+        "orkhanshukurlu",
+        "csrf",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Orkhan Shukurlu",
+            "email": "orkhandev@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/orkhanshukurlu/php-csrf",
+    "license": "MIT",
+    "require": {
+        "php" : ">=7.3"
+    },
+    "autoload": {
+        "files": [
+          "csrf.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
