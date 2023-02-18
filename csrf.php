@@ -7,7 +7,6 @@
  */
 const CSRF_SESSION = '__csrf_session__';
 
-
 if (! function_exists('csrf_field')) {
     /**
      * CSRF token inputu generasiya edir
