@@ -1,8 +1,9 @@
 # PHP CSRF
 
-![latest release](https://img.shields.io/badge/PHP->=7.3-blue.svg?style=flat-square)
-![latest release](https://img.shields.io/badge/Version-1.0.0-red.svg?style=flat-square)
-![latest release](https://img.shields.io/badge/License-MIT-success.svg?style=flat-square)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D_7.3-8892BF.svg)](https://www.php.net)
+[![Latest Stable Version](https://img.shields.io/packagist/v/orkhanshukurlu/php-csrf.svg)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
+[![Total Downloads](https://poser.pugx.org/orkhanshukurlu/php-csrf/downloads.png)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
+[![License](http://poser.pugx.org/orkhanshukurlu/php-csrf/license)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
 
 PHP-CSRF sizə veb-saytınızı CSRF hücumlarından qorumaq üçün bir sıra funksiyalar təklif edir. Bu funksiyalardan istifadə edərək yazdığınız vebsaytı həm daha təhlükəsiz etmiş olacaqsınız həm də botlardan və arzuolunmaz insanlardan uzaq tutacaqsınız
 
@@ -21,7 +22,7 @@ composer require orkhanshukurlu/php-csrf
 Funksiyaları istifadə edəcəyiniz fayllarda `vendor/autoload.php` faylını daxil etmək lazımdır
 
 ```php
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 ```
 
 ## Funksiyalar
@@ -34,10 +35,10 @@ require __DIR__.'/vendor/autoload.php';
 Funksiya `html`-də `form` elementinin daxilində istifadə edilməlidir. Beləliklə `type`-ı `hidden`, `name`-i `_token`, `value`-si `40` simvoldan ibarət olan `input` generasiya olunacaq. İstifadəsi aşağıdakı kimidir:
 
 ```php
-<?php require __DIR__.'/vendor/autoload.php'; ?>
+<?php require __DIR__ . '/vendor/autoload.php'; ?>
 
 <form action="#" method="POST">
-    <?=csrf_field();?>
+    <?= csrf_field(); ?>
 </form>
 ```
 
@@ -58,7 +59,7 @@ Funksiya `40` simvoldan ibarət token generasiya edir. Əgər yalnız token dəy
 ```php
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 echo csrf_token();
 ```
@@ -81,17 +82,19 @@ Funksiya `form`-da göndəriləcək tokenin doğru olub olmadığını yoxlayır
 ```php
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 if (csrf_validate($_POST)) {
     // Token dəyəri düzgündür, heç bir xəta yoxdur
-}
-
-else {
+} else {
     // Token dəyəri düzgün deyil, xəta baş verdi
 }
 ```
 
+## Lisenziya
+
+Laravel MSM [MIT lisenziyası](https://github.com/orkhanshukurlu/laravel-msm/blob/master/LICENSE.md) altında buraxılıb
+
 ## Əlaqə
 
-**Email**: orkhandev@gmail.com
+Telegram: [Orxan Şükürlü](https://t.me/orkhanshukurlu/)
