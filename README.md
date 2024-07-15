@@ -2,8 +2,8 @@
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D_7.3-8892BF.svg)](https://www.php.net)
 [![Latest Stable Version](https://img.shields.io/packagist/v/orkhanshukurlu/php-csrf.svg)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
-[![Total Downloads](https://poser.pugx.org/orkhanshukurlu/php-csrf/downloads.png)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
-[![License](http://poser.pugx.org/orkhanshukurlu/php-csrf/license)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
+[![Total Downloads](https://poser.pugx.org/orkhanshukurlu/php-csrf/downloads)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
+[![License](https://poser.pugx.org/orkhanshukurlu/php-csrf/license)](https://packagist.org/packages/orkhanshukurlu/php-csrf)
 
 PHP-CSRF sizə veb-saytınızı CSRF hücumlarından qorumaq üçün bir sıra funksiyalar təklif edir. Bu funksiyalardan istifadə edərək yazdığınız vebsaytı həm daha təhlükəsiz etmiş olacaqsınız həm də botlardan və arzuolunmaz insanlardan uzaq tutacaqsınız
 
